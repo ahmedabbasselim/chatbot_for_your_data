@@ -56,7 +56,7 @@ def init_llm():
 
     #Initialize embeddings using a pre-trained model to represent the text data.
     # create object of Hugging Face Instruct Embeddings with (model_name,  model_kwargs={"device": DEVICE} )
-    embeddings =   embeddings = HuggingFaceInstructEmbeddings(
+    embeddings = HuggingFaceInstructEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2", 
     model_kwargs={"device": DEVICE}
     )
