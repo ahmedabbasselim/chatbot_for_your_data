@@ -120,6 +120,7 @@ def process_prompt(prompt):
     # Update the chat history
     # TODO: Append the prompt and the bot's response to the chat history using chat_history.append and pass `prompt` `answer` as arguments
     # --> write your code here <--	
+    chat_history = chat_history.append((prompt, answer))
     
     logger.debug("Chat history updated. Total exchanges: %d", len(chat_history))
 
