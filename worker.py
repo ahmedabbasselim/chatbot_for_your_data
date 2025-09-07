@@ -1,5 +1,6 @@
 import os
 import torch
+#Logging
 import logging
 
 # Configure logging
@@ -9,9 +10,11 @@ logger = logging.getLogger(__name__)
 from langchain_core.prompts import PromptTemplate  # Updated import per deprecation notice
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import HuggingFaceInstructEmbeddings  # New import path
+#Load PDF
 from langchain_community.document_loaders import PyPDFLoader  # New import path
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma  # New import path
+#Load LLM
 from langchain_ibm import WatsonxLLM
 
 # Check for GPU availability and set the appropriate device for computation.
@@ -52,8 +55,11 @@ def init_llm():
     logger.debug("WatsonxLLM initialized: %s", llm_hub)
 
     #Initialize embeddings using a pre-trained model to represent the text data.
-    embeddings =  # create object of Hugging Face Instruct Embeddings with (model_name,  model_kwargs={"device": DEVICE} )
-    
+    # create object of Hugging Face Instruct Embeddings with (model_name,  model_kwargs={"device": DEVICE} )
+    embeddings =   embeddings = HuggingFaceInstructEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2", 
+    model_kwargs={"device": DEVICE}
+    )
     logger.debug("Embeddings initialized with model device: %s", DEVICE)
 
 # Function to process a PDF document
