@@ -12,6 +12,7 @@ from langchain.chains import RetrievalQA
 from langchain_community.embeddings import HuggingFaceInstructEmbeddings  # New import path
 #Load PDF
 from langchain_community.document_loaders import PyPDFLoader  # New import path
+#Splits documents into chunks
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma  # New import path
 #Load LLM
